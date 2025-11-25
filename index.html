@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <title>APN web </title>
+    <link rel="stylesheet" href="./style.css">
+
+  </head>
+    
+  <body>
+  <head>
+  <meta charset="UTF-8">
+  <link rel="icon" type="image/png" href="https://i.imgur.com/XXsk6Hm.png">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+</head>
+
+<header>
+  <div class="logo">
+    <img src="https://i.imgur.com/XXsk6Hm.png" alt="APN Logo">
+    <div>APN <span>– Accessible Public-energy Network</span></div>
+  </div>
+  <div class="lang-switch">
+    <button class="lang-btn active" onclick="setLang('eu')">EU</button>
+    <button class="lang-btn" onclick="setLang('es')">ES</button>
+    <button class="lang-btn" onclick="setLang('en')">EN</button>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="hero-content" data-aos="zoom-in">
+    <h1 id="hero-title">Eguzkitik jaio eta denengana iristen den energia</h1>
+    <p id="hero-subtitle">Usurbilgo LHko ikasleek sortutako proiektu berritzailea</p>
+    <a href="#products" class="btn-cta" id="cta-btn">Ezagutu Proiektua</a>
+  </div>
+</section>
+
+<section class="about" id="about">
+  <div class="container" data-aos="fade-up">
+    <h2 id="about-title">Nor gara?</h2>
+    <p id="about-text">Elektrizitate adarreko heziketa zikloko ikasle gazte batzuk gara eta klaseko proiektu batekin abiatu dugu hau. Gure helburu nagusia eguzki-energia publikoki erabiltzea eta banatzea da.</p>
+  </div>
+</section>
+
+<section class="roadmap" id="roadmap">
+  <div class="container">
+    <h2 data-aos="fade-up" id="roadmap-title">Proiektuaren Egoera</h2>
+    <div class="timeline">
+      <div class="timeline-item done" data-aos="fade-right">
+        <div class="circle"><i class="fas fa-check"></i></div>
+        <div class="content">
+          <h3 id="rm1-title">Ideia eta Diseinua</h3>
+          <p id="rm1-desc">Planifikazioa eta diseinu teknikoak amaituta.</p>
+          <span class="status-badge green" id="rm1-badge">Egina / Hecho / Done</span>
+        </div>
+      </div>
+      <div class="timeline-item active" data-aos="fade-left">
+        <div class="circle"><i class="fas fa-tools"></i></div>
+        <div class="content">
+          <h3 id="rm2-title">Prototipoa</h3>
+          <p id="rm2-desc">Lehen unitate funtzionala eraikitzen Usurbil LHn.</p>
+          <span class="status-badge orange" id="rm2-badge">Prozesuan / En proceso / in process</span>
+        </div>
+      </div>
+      <div class="timeline-item future" data-aos="fade-right">
+        <div class="circle"><i class="fas fa-mobile-alt"></i></div>
+        <div class="content">
+          <h3 id="rm3-title">App Garapena</h3>
+          <p id="rm3-desc">APN aplikazioaren bertsio Beta eta ordainketa sistema.</p>
+          <span class="status-badge grey" id="rm3-badge">Egiteko / Por hacer / to do</span>
+        </div>
+      </div>
+      <div class="timeline-item future" data-aos="fade-left">
+        <div class="circle"><i class="fas fa-globe-europe"></i></div>
+        <div class="content">
+          <h3 id="rm4-title">Hedapena Gipuzkoan</h3>
+          <p id="rm4-desc">Lehen instalazioak probintziako udalerrietan.</p>
+          <span class="status-badge grey" id="rm4-badge">Egiteko / Por hacer / To do</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="products" id="products">
+  <div class="container">
+    <h2 id="products-title" data-aos="fade-up">Gure Produktuak</h2>
+    <div class="product-card" data-aos="fade-right">
+      <div class="carousel">
+        <div class="carousel-images" id="carousel-bench">
+          <img src="https://i.imgur.com/GNs9Kjm.png" alt="EKI Seat">
+          <img src="https://i.imgur.com/7nEAPL1.jpeg" alt="EKI Seat">
+          <img src="https://i.imgur.com/OpOW4X1.png" alt="EKI Seat">
+        </div>
+        <button class="prev" onclick="moveSlide('carousel-bench', -1)">&#10094;</button>
+        <button class="next" onclick="moveSlide('carousel-bench', 1)">&#10095;</button>
+      </div>
+      <div class="p-info">
+        <div class="p-title" id="title-bench">EKI Seat</div>
+        <p class="p-desc" id="desc-bench">Eguzki-energiaz elikatutako banku adimenduna. Kargatu zure gailuak modu jasangarrian.</p>
+        <ul class="specs"><li><i class="fas fa-bolt"></i> USB Charge</li><li><i class="fas fa-lightbulb"></i> LED Light</li></ul>
+      </div>
+    </div>
+    <div class="product-card reverse" data-aos="fade-left">
+      <div class="carousel">
+        <div class="carousel-images" id="carousel-table">
+          <img src="https://i.imgur.com/PamRCp4.jpeg" alt="KALEA Work">
+          <img src="https://i.imgur.com/7pIZ2QF.jpeg" alt="KALEA Work">
+          <img src="https://i.imgur.com/ZHW0Yce.jpeg" alt="KALEA Work">
+        </div>
+        <button class="prev" onclick="moveSlide('carousel-table', -1)">&#10094;</button>
+        <button class="next" onclick="moveSlide('carousel-table', 1)">&#10095;</button>
+      </div>
+      <div class="p-info">
+        <div class="p-title" id="title-table">KALEA Work</div>
+        <p class="p-desc" id="desc-table">Lanerako edo aisialdirako mahai perfektua. Itzala, energia eta konexioa leku berean.</p>
+        <ul class="specs"><li><i class="fas fa-plug"></i> 220V Plug</li><li><i class="fas fa-wifi"></i> WiFi Zone</li></ul>
+      </div>
+    </div>
+    <div class="product-card" data-aos="fade-right">
+      <div class="carousel">
+        <div class="carousel-images" id="carousel-scooter">
+          <img src="https://i.imgur.com/eOcvhRt.jpeg" alt="HIRI Go">
+          <img src="https://i.imgur.com/CMAEbGN.jpeg" alt="HIRI Go">
+          <img src="https://i.imgur.com/BL0cTZd.jpeg" alt="HIRI Go">
+        </div>
+        <button class="prev" onclick="moveSlide('carousel-scooter', -1)">&#10094;</button>
+        <button class="next" onclick="moveSlide('carousel-scooter', 1)">&#10095;</button>
+      </div>
+      <div class="p-info">
+        <div class="p-title" id="title-scooter">HIRI Go</div>
+        <p class="p-desc" id="desc-scooter">Patinete eta bizikleta elektrikoentzako aparkaleku eta karga gunea. Mugikortasun jasangarria bultzatuz.</p>
+        <ul class="specs"><li><i class="fas fa-bicycle"></i> E-Bike</li><li><i class="fas fa-charging-station"></i> Fast Charge</li></ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="app-section" id="app">
+  <div class="container app-grid">
+    <div class="app-text" data-aos="fade-right">
+      <span class="badge" id="app-badge">Laster / Próximamente</span>
+      <h2 id="app-title">APN App: Konektatu eta Irabazi</h2>
+      <p id="app-desc">Gure eredua bakarra da. APN aplikazioaren bidez, erabiltzaileek harpidetza ordaintzen dute zerbitzuak erabiltzeko. Irabazi horiek Udalarekin partekatzen ditugu.</p>
+      <ul class="app-features">
+        <li id="app-feat-1"><i class="fas fa-coins"></i> Revenue Share (Irabaziak partekatu)</li>
+        <li id="app-feat-2"><i class="fas fa-mobile-alt"></i> App Harpidetza</li>
+        <li id="app-feat-3"><i class="fas fa-users"></i> Komunitatea Sortu</li>
+      </ul>
+      <button class="btn-cta" style="margin-top:20px;" id="app-btn">Deskargatu (Beta)</button>
+    </div>
+    <div class="app-img" data-aos="fade-left">
+      <img src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?q=80&w=600&auto=format&fit=crop" alt="APN App">
+    </div>
+  </div>
+</section>
+
+<section class="calculator">
+  <div class="container" data-aos="fade-up">
+    <h2 id="calc-title">Kalkulatu zure Udalaren Irabaziak</h2>
+    <p id="calc-subtitle">Zenbat EKI Seat jarriko zenituzke zure herrian?</p>
+    <div class="calc-wrapper">
+      <input type="number" id="benchInput" placeholder="10" min="1">
+      <button onclick="calculateProfit()" class="btn-calc" id="calc-btn">Kalkulatu</button>
+    </div>
+    <div id="resultBox" class="result-box">
+      <h3>+ <span id="profitAmount">0</span>€ / <span id="year-text">Urtean</span>*</h3>
+      <p class="small-text" id="calc-note">*Estimazioa: %50eko banaketa Udalarentzat.</p>
+    </div>
+  </div>
+</section>
+
+<section class="services" id="services">
+  <div class="container" data-aos="zoom-in">
+    <h2 id="service-title">Gure Zerbitzuak</h2>
+    <div class="service-card">
+      <div class="service-img" style="background-image: url('https://i.imgur.com/bENLaOD.jpeg');"></div>
+      <div class="service-content">
+        <h3 id="maint-title">Instalazioen Mantentzea</h3>
+        <div class="price-tag">50€ / h</div>
+        <p id="maint-desc">Gure talde teknikoak zure instalazioak egoera ezin hobean mantentzen ditu. Berrikuspenak eta konponketak.</p>
+        <button class="btn-service" id="maint-btn">Eskatu Aurrekontua</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="blog" id="blog">
+  <div class="container">
+    <h2 data-aos="fade-up" id="blog-title">Gure Filosofia</h2>
+    <div class="blog-grid">
+      <article class="blog-card" data-aos="fade-up">
+        <div class="blog-img" style="background-image: url('https://images.unsplash.com/photo-1517457373958-b7bdd4587205?q=80&w=800');"></div>
+        <div class="blog-content">
+          <span class="blog-tag" id="blog-tag-1">Komunitatea</span>
+          <h3 id="art1-title">Eguzkia: Elkartzeko aitzakia</h3>
+          <p id="art1-text">Gure helburua eguzki-energiaren inguruan komunitate bat sortzea da.</p>
+        </div>
+      </article>
+      <article class="blog-card" data-aos="fade-up" data-aos-delay="100">
+        <div class="blog-img" style="background-image: url('https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?q=80&w=800');"></div>
+        <div class="blog-content">
+          <span class="blog-tag" id="blog-tag-2">Garapena</span>
+          <h3 id="art2-title">Ideiatik Errealitatera</h3>
+          <p id="art2-text">Une honetan, APN fase kontzeptualean dago. Hurrengo pausoa: prototipoa eraikitzea.</p>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="team">
+  <div class="container">
+    <h2 id="team-title" data-aos="fade-up">Gure Taldea</h2>
+    <div class="team-grid">
+      <div class="team-member" data-aos="flip-up">
+        <img src="https://ui-avatars.com/api/?name=Markel+Tamayo&background=009B48&color=fff&size=128" class="avatar">
+        <h3>Markel Tamayo</h3><span class="role" id="role-markel">Liderra / Protagonista</span>
+      </div>
+      <div class="team-member" data-aos="flip-up" data-aos-delay="100">
+        <img src="https://ui-avatars.com/api/?name=Ander+Sanz&background=212529&color=fff&size=128" class="avatar">
+        <h3>Ander Sanz</h3><span class="role" id="role-ander">Bitartekaria</span>
+      </div>
+      <div class="team-member" data-aos="flip-up" data-aos-delay="200">
+        <img src="https://ui-avatars.com/api/?name=Dennis+A&background=212529&color=fff&size=128" class="avatar">
+        <h3>Dennis Agirrezabalaga</h3><span class="role" id="role-dennis">Teknikaria</span>
+      </div>
+      <div class="team-member" data-aos="flip-up" data-aos-delay="300">
+        <img src="https://ui-avatars.com/api/?name=Lander+Zabala&background=212529&color=fff&size=128" class="avatar">
+        <h3>Lander Zabala</h3><span class="role" id="role-lander">Ekintzailea</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="partners">
+  <div class="container">
+    <p id="partners-text">Laguntzaileak / Colaboran:</p>
+    <div class="logos-grid">
+      <img src="https://www.lhusurbil.eus/wp-content/uploads/2020/10/logoa-lhusurbil.png" alt="Usurbil LH" style="height: 60px; opacity: 0.8;">
+      <img src="https://i.imgur.com/XXsk6Hm.png" alt="APN Logo" style="height: 90px;">
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="contact-box" data-aos="fade-up">
+    <h2 id="contact-title">Kontaktua</h2>
+    <p><i class="fas fa-map-marker-alt"></i> Hernani Bo. Zinkuñaga 12, Gipuzkoa</p>
+    <p><i class="fas fa-envelope"></i> ikmtamayo24@lhusurbil.eus</p>
+    <a href="https://youtube.com/@APN-99" target="_blank" class="yt-btn"><i class="fab fa-youtube"></i> Youtube @APN-99</a>
+  </div>
+</section>
+
+<footer><p>&copy; 2025 APN – Accessible Public-energy Network. Usurbil LH.</p></footer>
+    <script  src="./script.js"></script>
+
+  </body>
+  
+</html>
