@@ -22,6 +22,9 @@
         * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', sans-serif; }
         html { scroll-behavior: smooth; }
         body { background: var(--white); color: var(--dark); overflow-x: hidden; }
+        
+        /* CLASE PARA BLOQUEAR SCROLL CUANDO EL MODAL ESTÁ ABIERTO */
+        body.modal-open { overflow: hidden; }
 
         /* HEADER */
         header {
@@ -171,9 +174,27 @@
         .yt-btn { display: inline-block; margin-top: 20px; background: #ff0000; color: white; padding: 10px 20px; border-radius: 30px; text-decoration: none; font-weight: bold; }
         footer { text-align: center; padding: 2rem; background: #111; color: #666; font-size: 0.9rem; }
 
-        /* MODALS */
-        .modal { display: none; position: fixed; z-index: 2000; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.8); }
-        .modal-content { background-color: #fefefe; margin: 10% auto; padding: 30px; border-radius: 10px; width: 90%; max-width: 600px; position: relative; }
+        /* MODAL (Pop-up de Blog) ARREGLADO */
+        .modal { 
+            display: none; 
+            position: fixed; 
+            z-index: 2000; 
+            left: 0; 
+            top: 0; 
+            width: 100%; 
+            height: 100%; 
+            background-color: rgba(0,0,0,0.8); 
+            overflow-y: auto; /* PERMITE SCROLL EN EL TEXTO */
+        }
+        .modal-content { 
+            background-color: #fefefe; 
+            margin: 10% auto; 
+            padding: 30px; 
+            border-radius: 10px; 
+            width: 90%; 
+            max-width: 600px; 
+            position: relative; 
+        }
         .close { color: #aaa; float: right; font-size: 28px; font-weight: bold; cursor: pointer; }
         .close:hover { color: black; }
     </style>
@@ -248,7 +269,11 @@
             <h2 id="service-title">Gure Zerbitzuak</h2>
             <div class="service-card">
                 <div class="service-img" style="background-image: url('https://i.imgur.com/bENLaOD.jpeg');"></div>
-                <div class="service-content"><h3 id="maint-title">Instalazioen Mantentzea</h3><p id="maint-desc">Gure talde teknikoak zure instalazioak egoera ezin hobean mantentzen ditu.</p><button class="btn-service" id="maint-btn">Jarri Gurekin Harremanetan</button></div>
+                <div class="service-content">
+                    <h3 id="maint-title">Instalazioen Mantentzea</h3>
+                    <p id="maint-desc">Gure talde teknikoak zure instalazioak egoera ezin hobean mantentzen ditu.</p>
+                    <button class="btn-service" id="maint-btn" onclick="window.location.href='mailto:ikmtamayo24@lhusurbil.eus'">Jarri Gurekin Harremanetan</button>
+                </div>
             </div>
         </div>
     </section>
@@ -292,13 +317,18 @@
     </section>
 
     <section class="contact" id="contact">
-        <div class="contact-box" data-aos="fade-up"><h2 id="contact-title">Kontaktua</h2><p><i class="fas fa-map-marker-alt"></i> Hernani Bo. Zinkuñaga 12, Gipuzkoa</p><p><i class="fas fa-envelope"></i> ikmtamayo24@lhusurbil.eus</p><a href="https://youtube.com/@APN-99" target="_blank" class="yt-btn"><i class="fab fa-youtube"></i> Youtube @APN-99</a></div>
+        <div class="contact-box" data-aos="fade-up">
+            <h2 id="contact-title">Kontaktua</h2>
+            <p><i class="fas fa-map-marker-alt"></i> Hernani Bo. Zinkuñaga 12, Gipuzkoa</p>
+            <p><i class="fas fa-envelope"></i> <a href="mailto:ikmtamayo24@lhusurbil.eus" style="color:white; text-decoration:underline;">ikmtamayo24@lhusurbil.eus</a></p>
+            <a href="https://youtube.com/@APN-99" target="_blank" class="yt-btn"><i class="fab fa-youtube"></i> Youtube @APN-99</a>
+        </div>
     </section>
 
     <footer><p>&copy; 2025 APN – Accessible Public-energy Network. Usurbil LH.</p></footer>
 
-    <div id="modal1" class="modal"><div class="modal-content"><span class="close" onclick="closeModal('modal1')">&times;</span><h2 id="mod1-title">Eguzkia: Elkartzeko aitzakia</h2><img src="https://images.unsplash.com/photo-1517457373958-b7bdd4587205?q=80&w=800" style="width:100%; border-radius:10px; margin: 15px 0;"><p id="mod1-text">Ez dugu soilik elektrizitatea eskaini nahi. Gure helburua eguzki-energiaren inguruan komunitate bat sortzea da. Espazio publikoak biziberritu nahi ditugu, jendea elkartuz kargatzen duten bitartean.</p></div></div>
-    <div id="modal2" class="modal"><div class="modal-content"><span class="close" onclick="closeModal('modal2')">&times;</span><h2 id="mod2-title">Ideiatik Errealitatera</h2><img src="https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?q=80&w=800" style="width:100%; border-radius:10px; margin: 15px 0;"><p id="mod2-text">Une honetan, APN fase kontzeptualean dago. Diseinuak eta eredu ekonomikoa prest ditugu Udalekin eta Unibertsitateekin elkarlanean aritzeko.</p></div></div>
+    <div id="modal1" class="modal"><div class="modal-content"><span class="close" onclick="closeModal('modal1')">&times;</span><h2 id="mod1-title">Eguzkia: Elkartzeko aitzakia</h2><img src="https://images.unsplash.com/photo-1517457373958-b7bdd4587205?q=80&w=800" style="width:100%; border-radius:10px; margin: 15px 0;"><p id="mod1-text">Ez dugu soilik elektrizitatea eskaini nahi. Gure helburua eguzki-energiaren inguruan komunitate bat sortzea da. Espazio publikoak biziberritu nahi ditugu, jendea elkartuz kargatzen duten bitartean. Teknologia ez da hotza izan behar, baizik eta pertsonak batzeko tresna.</p></div></div>
+    <div id="modal2" class="modal"><div class="modal-content"><span class="close" onclick="closeModal('modal2')">&times;</span><h2 id="mod2-title">Ideiatik Errealitatera</h2><img src="https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?q=80&w=800" style="width:100%; border-radius:10px; margin: 15px 0;"><p id="mod2-text">Une honetan, APN fase kontzeptualean dago. Diseinuak eta eredu ekonomikoa prest ditugu Udalekin eta Unibertsitateekin elkarlanean aritzeko. Hurrengo pausoa: prototipoa eraikitzea Usurbil LHko tailerretan, gure ezagutza praktikoa erakusteko.</p></div></div>
 
     <script>
         // 1. ANIMACIONES AOS
@@ -311,10 +341,21 @@
         // 3. CALCULADORA
         function calculateProfit() { const i = document.getElementById('benchInput'); const s = document.getElementById('profitAmount'); if(i.value > 0) { s.innerText = (i.value * 500).toLocaleString('eu-ES'); document.getElementById('resultBox').style.display = 'block'; } else { alert("Mesedez, sartu zenbaki bat."); } }
 
-        // 4. MODALS
-        function openModal(id) { document.getElementById(id).style.display = "block"; }
-        function closeModal(id) { document.getElementById(id).style.display = "none"; }
-        window.onclick = function(event) { if (event.target.classList.contains('modal')) { event.target.style.display = "none"; } }
+        // 4. MODALS (ARREGLADO SCROLL)
+        function openModal(id) { 
+            document.getElementById(id).style.display = "block"; 
+            document.body.classList.add("modal-open"); // Bloquea scroll fondo
+        }
+        function closeModal(id) { 
+            document.getElementById(id).style.display = "none"; 
+            document.body.classList.remove("modal-open"); // Libera scroll fondo
+        }
+        window.onclick = function(event) { 
+            if (event.target.classList.contains('modal')) { 
+                event.target.style.display = "none"; 
+                document.body.classList.remove("modal-open"); 
+            } 
+        }
 
         // 5. TRADUCCIONES
         const translations = {
