@@ -1,255 +1,403 @@
+<!DOCTYPE html>
+<html lang="eu">
 <head>
-  <meta charset="UTF-8">
-  <link rel="icon" type="image/png" href="https://i.imgur.com/XXsk6Hm.png">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-</head>
-
-<header>
-  <div class="logo">
-    <img src="https://i.imgur.com/XXsk6Hm.png" alt="APN Logo">
-    <div>APN <span>– Accessible Public-energy Network</span></div>
-  </div>
-  <div class="lang-switch">
-    <button class="lang-btn active" onclick="setLang('eu')">EU</button>
-    <button class="lang-btn" onclick="setLang('es')">ES</button>
-    <button class="lang-btn" onclick="setLang('en')">EN</button>
-  </div>
-</header>
-
-<section class="hero">
-  <div class="hero-content" data-aos="zoom-in">
-    <h1 id="hero-title">Eguzkitik jaio eta denengana iristen den energia</h1>
-    <p id="hero-subtitle">Usurbilgo LHko ikasleek sortutako proiektu berritzailea</p>
-    <a href="#invest" class="btn-cta" id="cta-btn">Zergatik Inbertitu?</a>
-  </div>
-</section>
-
-<section class="invest" id="invest">
-  <div class="container" data-aos="fade-up">
-    <h2 id="invest-title">Zergatik inbertitu APN System-en?</h2>
-    <p id="invest-subtitle" style="text-align:center; font-size:1.2rem; margin-bottom:3rem; color:#666;">Hiri-altzariak aktibo errentagarri eta jasangarri bihurtzen ditugu.</p>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>APN System</title>
     
-    <div class="invest-grid">
-      <div class="invest-card">
-        <div class="icon-circle"><i class="fas fa-hard-hat"></i></div>
-        <h3 id="inv-1-title">Azpiegitura Arina (Zero Obra)</h3>
-        <p id="inv-1-desc">Ahaztu zanja garestiak eta baimen luzeak. Gure sistema autonomoa da: jarri eta funtzionatu (Plug & Play). Ezin hobea campus eta parke historikoetarako.</p>
-      </div>
-      <div class="invest-card">
-        <div class="icon-circle"><i class="fas fa-euro-sign"></i></div>
-        <h3 id="inv-2-title">Inbertsioaren Itzulera</h3>
-        <p id="inv-2-desc">Gastua inbertsio bihurtzen dugu. Gure App-aren zerbitzu premium-ek diru-sarrerak sortzen dituzte, eta horiek Udalarekin partekatzen ditugu (Revenue Share).</p>
-      </div>
-      <div class="invest-card">
-        <div class="icon-circle"><i class="fas fa-university"></i></div>
-        <h3 id="inv-3-title">Abangoardia eta Ongizatea</h3>
-        <p id="inv-3-desc">Egin zure erakundea jasangarritasunaren erreferente. Eskaini ikasle eta herritarrei lan egiteko eta konektatzeko espazio berde eta teknologikoak.</p>
-      </div>
-    </div>
-  </div>
-</section>
+    <link rel="icon" type="image/png" href="https://i.imgur.com/XXsk6Hm.png">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
-<section class="products" id="products">
-  <div class="container">
-    <h2 id="products-title" data-aos="fade-up">Gure Produktuak</h2>
-    <div class="product-card" data-aos="fade-right">
-      <div class="carousel">
-        <div class="carousel-images" id="carousel-bench">
-          <img src="https://i.imgur.com/GNs9Kjm.png" alt="EKI Seat">
-          <img src="https://i.imgur.com/7nEAPL1.jpeg" alt="EKI Seat">
-          <img src="https://i.imgur.com/OpOW4X1.png" alt="EKI Seat">
+    <style>
+        /* --- CSS (ESTILOS) --- */
+        :root {
+            --primary: #009B48; /* Verde Vasco */
+            --dark: #212529;
+            --light: #f8f9fa;
+            --white: #ffffff;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', sans-serif; }
+        html { scroll-behavior: smooth; }
+        body { background: var(--white); color: var(--dark); overflow-x: hidden; }
+
+        /* HEADER */
+        header {
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 1rem 5%; background: rgba(255,255,255,0.95);
+            position: sticky; top: 0; z-index: 1000; box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .logo { font-size: 1.2rem; font-weight: 900; display: flex; align-items: center; max-width: 70%; }
+        .logo img { height: 35px; margin-right: 10px; }
+        .logo span { color: var(--primary); display: block; font-size: 0.9rem; font-weight: normal;}
+        @media(min-width: 768px) {
+            .logo { font-size: 1.8rem; }
+            .logo img { height: 40px; }
+            .logo span { display: inline; font-size: 1.8rem; font-weight: 900; }
+        }
+
+        .lang-switch { display: flex; gap: 5px; }
+        .lang-btn {
+            border: 2px solid var(--dark); background: transparent; padding: 5px 8px;
+            cursor: pointer; font-weight: bold; border-radius: 5px; transition: 0.3s; font-size: 0.8rem;
+        }
+        @media(min-width: 768px) { .lang-btn { padding: 5px 10px; font-size: 1rem; } }
+        .lang-btn.active, .lang-btn:hover {
+            background: var(--primary); color: white; border-color: var(--primary);
+        }
+
+        /* HERO */
+        .hero {
+            height: 85vh;
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.4)), url('https://i.imgur.com/qUAoG84.jpeg');
+            background-size: cover; background-position: center;
+            display: flex; align-items: center; justify-content: center;
+            text-align: center; color: white; padding: 20px;
+        }
+        .hero h1 { font-size: 2.5rem; margin-bottom: 1rem; text-shadow: 0 4px 10px rgba(0,0,0,0.5); }
+        @media(min-width: 768px) { .hero h1 { font-size: 3.5rem; } }
+        .hero p { font-size: 1.2rem; margin-bottom: 2rem; }
+        .btn-cta {
+            background: var(--primary); color: white; padding: 1rem 2.5rem; text-decoration: none;
+            border-radius: 50px; font-weight: bold; transition: 0.3s; box-shadow: 0 4px 15px rgba(0,155,72,0.4); border: none; cursor: pointer; display: inline-block;
+        }
+        .btn-cta:hover { transform: scale(1.05); }
+
+        /* SECCIONES */
+        section { padding: 4rem 5%; }
+        @media(min-width: 768px) { section { padding: 5rem 10%; } }
+        .container { max-width: 1200px; margin: 0 auto; }
+        h2 { text-align: center; font-size: 2rem; margin-bottom: 2rem; color: var(--primary); }
+        @media(min-width: 768px) { h2 { font-size: 2.5rem; margin-bottom: 3rem; } }
+
+        /* INVEST (INVERSIÓN) */
+        .invest { background: #fff; }
+        .invest-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
+        .invest-card { padding: 2rem; background: var(--light); border-radius: 15px; text-align: center; transition: 0.3s; }
+        .invest-card:hover { transform: translateY(-10px); box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
+        .icon-circle { width: 80px; height: 80px; background: var(--primary); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 2rem; margin: 0 auto 1.5rem; }
+        .invest-card h3 { font-size: 1.5rem; margin-bottom: 1rem; }
+
+        /* PRODUCTOS */
+        .product-card {
+            background: white; border-radius: 15px; overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08); margin-bottom: 4rem;
+            display: flex; flex-direction: column;
+        }
+        @media(min-width: 900px) {
+            .product-card { flex-direction: row; height: 450px; }
+            .product-card.reverse { flex-direction: row-reverse; }
+        }
+        .carousel { position: relative; width: 100%; height: 300px; overflow: hidden; background: #eee; }
+        @media(min-width: 900px) { .carousel { width: 55%; height: 100%; } }
+        .carousel-images { display: flex; transition: transform 0.5s ease-in-out; height: 100%; }
+        .carousel-images img { min-width: 100%; height: 100%; object-fit: cover; }
+        .prev, .next {
+            position: absolute; top: 50%; transform: translateY(-50%);
+            background: rgba(0,0,0,0.5); color: white; border: none; padding: 10px; cursor: pointer; font-size: 1.5rem;
+        }
+        .prev { left: 10px; } .next { right: 10px; }
+        .p-info { padding: 2.5rem; flex: 1; display: flex; flex-direction: column; justify-content: center; }
+        .p-title { font-size: 2rem; font-weight: 800; margin-bottom: 1rem; }
+        .specs { list-style: none; margin-top: 1.5rem; display: flex; gap: 1rem; }
+        .specs li { background: var(--light); padding: 5px 15px; border-radius: 20px; font-weight: bold; color: #555; }
+
+        /* APP SECTION */
+        .app-section { background: #f0fff4; }
+        .app-grid { display: flex; flex-direction: column; align-items: center; gap: 3rem; }
+        @media(min-width: 900px) { .app-grid { flex-direction: row; } .app-text { width: 50%; } .app-img { width: 50%; text-align: center; } }
+        .badge { background: var(--dark); color: white; padding: 5px 10px; border-radius: 5px; font-size: 0.8rem; text-transform: uppercase; }
+        .app-features { list-style: none; margin-top: 20px; }
+        .app-features li { margin-bottom: 10px; font-size: 1.1rem; }
+        .app-features i { color: var(--primary); margin-right: 10px; }
+        .app-img img { max-width: 300px; border-radius: 30px; box-shadow: 0 20px 50px rgba(0,155,72,0.3); border: 8px solid var(--dark); }
+
+        /* CALCULADORA */
+        .calculator { background: var(--dark); color: white; text-align: center; }
+        .calculator h2 { color: var(--primary); }
+        .calc-wrapper { margin: 2rem 0; display: flex; justify-content: center; gap: 10px; }
+        #benchInput { padding: 15px; border-radius: 50px; border: none; width: 150px; text-align: center; font-size: 1.2rem; }
+        .btn-calc { padding: 15px 30px; background: var(--primary); color: white; border: none; border-radius: 50px; font-weight: bold; cursor: pointer; transition: 0.3s; }
+        .btn-calc:hover { background: white; color: var(--primary); }
+        .result-box { display: none; background: rgba(255,255,255,0.1); padding: 2rem; border-radius: 20px; margin-top: 2rem; animation: fadeIn 0.5s; }
+        .result-box h3 { font-size: 2.5rem; color: var(--primary); margin: 0; }
+        .small-text { font-size: 0.9rem; opacity: 0.7; margin-top: 5px; }
+
+        /* SERVICIOS */
+        .services { background: var(--light); } 
+        .service-card { background: white; border-radius: 20px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.05); display: flex; flex-wrap: wrap; }
+        .service-img { width: 100%; height: 250px; background-size: cover; background-position: center; } @media(min-width: 768px) { .service-img { width: 40%; height: auto; } }
+        .service-content { padding: 3rem; flex: 1; } 
+        .btn-service { margin-top: 20px; padding: 10px 25px; background: var(--primary); color: white; border: none; border-radius: 5px; cursor: pointer; font-weight: bold; }
+
+        /* ROADMAP */
+        .roadmap { background: #fff; }
+        .timeline { position: relative; max-width: 800px; margin: 0 auto; }
+        .timeline::after { content: ''; position: absolute; width: 4px; background-color: #eee; top: 0; bottom: 0; left: 50%; margin-left: -2px; }
+        .timeline-item { padding: 10px 40px; position: relative; width: 50%; box-sizing: border-box; }
+        .timeline-item:nth-child(odd) { left: 0; text-align: right; }
+        .timeline-item:nth-child(even) { left: 50%; text-align: left; }
+        .circle { padding: 10px; position: absolute; top: 15px; width: 40px; height: 40px; right: -20px; background-color: white; border: 4px solid #ddd; border-radius: 50%; z-index: 1; display: flex; align-items: center; justify-content: center; }
+        .timeline-item:nth-child(even) .circle { left: -20px; }
+        .timeline-item.done .circle { border-color: var(--primary); color: var(--primary); background: #e8f5e9; }
+        .timeline-item.active .circle { border-color: #ff9800; color: #ff9800; background: #fff3e0; animation: pulse 2s infinite; }
+        .status-badge { display: inline-block; padding: 4px 10px; border-radius: 4px; font-size: 0.75rem; font-weight: bold; text-transform: uppercase; margin-top: 5px; }
+        .green { background: #d4edda; color: #155724; } .orange { background: #fff3cd; color: #856404; } .grey { background: #e2e3e5; color: #383d41; }
+        @keyframes pulse { 0% { box-shadow: 0 0 0 0 rgba(255, 152, 0, 0.4); } 70% { box-shadow: 0 0 0 10px rgba(255, 152, 0, 0); } 100% { box-shadow: 0 0 0 0 rgba(255, 152, 0, 0); } }
+        @media screen and (max-width: 600px) { .timeline::after { left: 31px; } .timeline-item { width: 100%; padding-left: 70px; text-align: left !important; } .timeline-item:nth-child(even) { left: 0%; } .circle, .timeline-item:nth-child(even) .circle { left: 10px; } }
+
+        /* BLOG, TEAM & PARTNERS */
+        .blog-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
+        .blog-card { background: var(--light); border-radius: 15px; overflow: hidden; transition: 0.3s; box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
+        .blog-card:hover { transform: translateY(-5px); } .blog-img { height: 200px; background-size: cover; background-position: center; } .blog-content { padding: 1.5rem; }
+        .blog-tag { background: var(--primary); color: white; padding: 4px 10px; border-radius: 5px; font-size: 0.8rem; font-weight: bold; text-transform: uppercase; }
+        .blog-content h3 { font-size: 1.4rem; margin: 10px 0; color: var(--dark); }
+        .read-more { background: none; border: none; color: var(--primary); font-weight: bold; cursor: pointer; padding: 0; font-size: 1rem; margin-top: 10px; }
+        
+        .team-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem; }
+        .team-member { text-align: center; padding: 2rem; background: white; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); transition: 0.3s; }
+        .team-member:hover { transform: translateY(-10px); }
+        .avatar { width: 100px; height: 100px; border-radius: 50%; margin-bottom: 1rem; border: 3px solid var(--primary); }
+        .role { color: var(--primary); font-weight: bold; font-size: 0.8rem; display: block; margin-bottom: 10px; text-transform: uppercase; }
+        .member-bio { font-size: 0.9rem; color: #666; }
+
+        .partners { background: #f9f9f9; padding: 2rem 0; text-align: center; } .logos-grid { display: flex; justify-content: center; align-items: center; gap: 3rem; flex-wrap: wrap; }
+        .logos-grid img { filter: grayscale(100%); transition: 0.3s; max-width: 200px; } .logos-grid img:hover { filter: grayscale(0%); transform: scale(1.1); }
+
+        /* CONTACTO & FOOTER */
+        .contact { background: var(--dark); color: white; text-align: center; } .contact h2 { color: white; }
+        .yt-btn { display: inline-block; margin-top: 20px; background: #ff0000; color: white; padding: 10px 20px; border-radius: 30px; text-decoration: none; font-weight: bold; }
+        footer { text-align: center; padding: 2rem; background: #111; color: #666; font-size: 0.9rem; }
+
+        /* MODALS */
+        .modal { display: none; position: fixed; z-index: 2000; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.8); }
+        .modal-content { background-color: #fefefe; margin: 10% auto; padding: 30px; border-radius: 10px; width: 90%; max-width: 600px; position: relative; }
+        .close { color: #aaa; float: right; font-size: 28px; font-weight: bold; cursor: pointer; }
+        .close:hover { color: black; }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">
+            <img src="https://i.imgur.com/XXsk6Hm.png" alt="APN Logo">
+            <div>APN <span>– Accessible Public-energy Network</span></div>
         </div>
-        <button class="prev" onclick="moveSlide('carousel-bench', -1)">&#10094;</button>
-        <button class="next" onclick="moveSlide('carousel-bench', 1)">&#10095;</button>
-      </div>
-      <div class="p-info">
-        <div class="p-title" id="title-bench">EKI Seat</div>
-        <p class="p-desc" id="desc-bench">Eguzki-energiaz elikatutako banku adimenduna. Kargatu zure gailuak modu jasangarrian.</p>
-        <ul class="specs"><li><i class="fas fa-bolt"></i> USB Charge</li><li><i class="fas fa-lightbulb"></i> LED Light</li></ul>
-      </div>
-    </div>
-    <div class="product-card reverse" data-aos="fade-left">
-      <div class="carousel">
-        <div class="carousel-images" id="carousel-table">
-          <img src="https://i.imgur.com/PamRCp4.jpeg" alt="KALEA Work">
-          <img src="https://i.imgur.com/7pIZ2QF.jpeg" alt="KALEA Work">
-          <img src="https://i.imgur.com/ZHW0Yce.jpeg" alt="KALEA Work">
+        <div class="lang-switch">
+            <button class="lang-btn active" onclick="setLang('eu')">EU</button>
+            <button class="lang-btn" onclick="setLang('es')">ES</button>
+            <button class="lang-btn" onclick="setLang('en')">EN</button>
         </div>
-        <button class="prev" onclick="moveSlide('carousel-table', -1)">&#10094;</button>
-        <button class="next" onclick="moveSlide('carousel-table', 1)">&#10095;</button>
-      </div>
-      <div class="p-info">
-        <div class="p-title" id="title-table">KALEA Work</div>
-        <p class="p-desc" id="desc-table">Lanerako edo aisialdirako mahai perfektua. Itzala, energia eta konexioa leku berean.</p>
-        <ul class="specs"><li><i class="fas fa-plug"></i> 220V Plug</li><li><i class="fas fa-wifi"></i> WiFi Zone</li></ul>
-      </div>
-    </div>
-    <div class="product-card" data-aos="fade-right">
-      <div class="carousel">
-        <div class="carousel-images" id="carousel-scooter">
-          <img src="https://i.imgur.com/eOcvhRt.jpeg" alt="HIRI Go">
-          <img src="https://i.imgur.com/CMAEbGN.jpeg" alt="HIRI Go">
-          <img src="https://i.imgur.com/BL0cTZd.jpeg" alt="HIRI Go">
+    </header>
+
+    <section class="hero">
+        <div class="hero-content" data-aos="zoom-in">
+            <h1 id="hero-title">Eguzkitik jaio eta denengana iristen den energia</h1>
+            <p id="hero-subtitle">Usurbilgo LHko ikasleek sortutako proiektu berritzailea</p>
+            <a href="#invest" class="btn-cta" id="cta-btn">Zergatik Inbertitu?</a>
         </div>
-        <button class="prev" onclick="moveSlide('carousel-scooter', -1)">&#10094;</button>
-        <button class="next" onclick="moveSlide('carousel-scooter', 1)">&#10095;</button>
-      </div>
-      <div class="p-info">
-        <div class="p-title" id="title-scooter">HIRI Go</div>
-        <p class="p-desc" id="desc-scooter">Patinete eta bizikleta elektrikoentzako aparkaleku eta karga gunea. Mugikortasun jasangarria bultzatuz.</p>
-        <ul class="specs"><li><i class="fas fa-bicycle"></i> E-Bike</li><li><i class="fas fa-charging-station"></i> Fast Charge</li></ul>
-      </div>
-    </div>
-  </div>
-</section>
+    </section>
 
-<section class="app-section" id="app">
-  <div class="container app-grid">
-    <div class="app-text" data-aos="fade-right">
-      <span class="badge" id="app-badge">Laster / Próximamente</span>
-      <h2 id="app-title">APN App: Konektatu eta Irabazi</h2>
-      <p id="app-desc">Gure eredua bakarra da. APN aplikazioaren bidez, erabiltzaileek harpidetza ordaintzen dute zerbitzuak erabiltzeko. Irabazi horiek Udalarekin partekatzen ditugu.</p>
-      <ul class="app-features">
-        <li id="app-feat-1"><i class="fas fa-coins"></i> Revenue Share (Irabaziak partekatu)</li>
-        <li id="app-feat-2"><i class="fas fa-mobile-alt"></i> App Harpidetza</li>
-        <li id="app-feat-3"><i class="fas fa-users"></i> Komunitatea Sortu</li>
-      </ul>
-      <a href="https://tamayo777.github.io/APN-APP/" target="_blank" class="btn-cta" style="margin-top:20px; display:inline-block;" id="app-btn">Deskargatu (Beta)</a>
-    </div>
-    <div class="app-img" data-aos="fade-left">
-      <img src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?q=80&w=600&auto=format&fit=crop" alt="APN App">
-    </div>
-  </div>
-</section>
-
-<section class="calculator">
-  <div class="container" data-aos="fade-up">
-    <h2 id="calc-title">Kalkulatu zure Udalaren Irabaziak</h2>
-    <p id="calc-subtitle">Zenbat EKI Seat jarriko zenituzke zure herrian?</p>
-    <div class="calc-wrapper">
-      <input type="number" id="benchInput" placeholder="10" min="1">
-      <button onclick="calculateProfit()" class="btn-calc" id="calc-btn">Kalkulatu</button>
-    </div>
-    <div id="resultBox" class="result-box">
-      <h3>+ <span id="profitAmount">0</span>€ / <span id="year-text">Urtean</span>*</h3>
-      <p class="small-text" id="calc-note">*Estimazioa: %50eko banaketa Udalarentzat.</p>
-    </div>
-  </div>
-</section>
-
-<section class="services" id="services">
-  <div class="container" data-aos="zoom-in">
-    <h2 id="service-title">Gure Zerbitzuak</h2>
-    <div class="service-card">
-      <div class="service-img" style="background-image: url('https://i.imgur.com/bENLaOD.jpeg');"></div>
-      <div class="service-content">
-        <h3 id="maint-title">Instalazioen Mantentzea</h3>
-        <p id="maint-desc">Gure talde teknikoak zure instalazioak egoera ezin hobean mantentzen ditu. Berrikuspenak eta konponketak.</p>
-        <button class="btn-service" id="maint-btn">Jarri Gurekin Harremanetan</button>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="roadmap" id="roadmap">
-  <div class="container">
-    <h2 data-aos="fade-up" id="roadmap-title">Proiektuaren Egoera</h2>
-    <div class="timeline">
-      <div class="timeline-item done" data-aos="fade-right">
-        <div class="circle"><i class="fas fa-check"></i></div>
-        <div class="content"><h3 id="rm1-title">Ideia eta Diseinua</h3><p id="rm1-desc">Planifikazioa eta diseinu teknikoak amaituta.</p><span class="status-badge green" id="rm1-badge">Egina</span></div>
-      </div>
-      <div class="timeline-item active" data-aos="fade-left">
-        <div class="circle"><i class="fas fa-tools"></i></div>
-        <div class="content"><h3 id="rm2-title">Prototipoa</h3><p id="rm2-desc">Lehen unitate funtzionala eraikitzen Usurbil LHn.</p><span class="status-badge orange" id="rm2-badge">Prozesuan</span></div>
-      </div>
-      <div class="timeline-item future" data-aos="fade-right">
-        <div class="circle"><i class="fas fa-mobile-alt"></i></div>
-        <div class="content"><h3 id="rm3-title">App Garapena</h3><p id="rm3-desc">APN aplikazioaren bertsio Beta.</p><span class="status-badge grey" id="rm3-badge">Egiteke</span></div>
-      </div>
-      <div class="timeline-item future" data-aos="fade-left">
-        <div class="circle"><i class="fas fa-globe-europe"></i></div>
-        <div class="content"><h3 id="rm4-title">Hedapena Gipuzkoan</h3><p id="rm4-desc">Lehen instalazioak probintziako udalerrietan.</p><span class="status-badge grey" id="rm4-badge">Egiteke</span></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="blog" id="blog">
-  <div class="container">
-    <h2 data-aos="fade-up" id="blog-title">Gure Filosofia</h2>
-    <div class="blog-grid">
-      <article class="blog-card" data-aos="fade-up">
-        <div class="blog-img" style="background-image: url('https://images.unsplash.com/photo-1517457373958-b7bdd4587205?q=80&w=800');"></div>
-        <div class="blog-content">
-          <span class="blog-tag" id="blog-tag-1">Komunitatea</span>
-          <h3 id="art1-title">Eguzkia: Elkartzeko aitzakia</h3>
-          <p id="art1-text">Gure helburua eguzki-energiaren inguruan komunitate bat sortzea da.</p>
-          <button class="read-more" onclick="openModal('modal1')" id="read-more-1">Gehiago irakurri &rarr;</button>
+    <section class="invest" id="invest">
+        <div class="container" data-aos="fade-up">
+            <h2 id="invest-title">Zergatik inbertitu APN System-en?</h2>
+            <p id="invest-subtitle" style="text-align:center; font-size:1.2rem; margin-bottom:3rem; color:#666;">Hiri-altzariak aktibo errentagarri eta jasangarri bihurtzen ditugu.</p>
+            <div class="invest-grid">
+                <div class="invest-card"><div class="icon-circle"><i class="fas fa-hard-hat"></i></div><h3 id="inv-1-title">Azpiegitura Arina (Zero Obra)</h3><p id="inv-1-desc">Ahaztu zanja garestiak eta baimen luzeak. Gure sistema autonomoa da: jarri eta funtzionatu (Plug & Play). Ezin hobea campus eta parke historikoetarako.</p></div>
+                <div class="invest-card"><div class="icon-circle"><i class="fas fa-euro-sign"></i></div><h3 id="inv-2-title">Inbertsioaren Itzulera</h3><p id="inv-2-desc">Gastua inbertsio bihurtzen dugu. Gure App-aren zerbitzu premium-ek diru-sarrerak sortzen dituzte, eta horiek Udalarekin partekatzen ditugu (Revenue Share).</p></div>
+                <div class="invest-card"><div class="icon-circle"><i class="fas fa-university"></i></div><h3 id="inv-3-title">Abangoardia eta Ongizatea</h3><p id="inv-3-desc">Egin zure erakundea jasangarritasunaren erreferente. Eskaini ikasle eta herritarrei lan egiteko eta konektatzeko espazio berde eta teknologikoak.</p></div>
+            </div>
         </div>
-      </article>
-      <article class="blog-card" data-aos="fade-up" data-aos-delay="100">
-        <div class="blog-img" style="background-image: url('https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?q=80&w=800');"></div>
-        <div class="blog-content">
-          <span class="blog-tag" id="blog-tag-2">Garapena</span>
-          <h3 id="art2-title">Ideiatik Errealitatera</h3>
-          <p id="art2-text">Une honetan, APN fase kontzeptualean dago. Hurrengo pausoa: prototipoa.</p>
-          <button class="read-more" onclick="openModal('modal2')" id="read-more-2">Gehiago irakurri &rarr;</button>
+    </section>
+
+    <section class="products" id="products">
+        <div class="container">
+            <h2 id="products-title" data-aos="fade-up">Gure Produktuak</h2>
+            <div class="product-card" data-aos="fade-right"><div class="carousel"><div class="carousel-images" id="carousel-bench"><img src="https://i.imgur.com/GNs9Kjm.png"><img src="https://i.imgur.com/7nEAPL1.jpeg"><img src="https://i.imgur.com/OpOW4X1.png"></div><button class="prev" onclick="moveSlide('carousel-bench', -1)">&#10094;</button><button class="next" onclick="moveSlide('carousel-bench', 1)">&#10095;</button></div><div class="p-info"><div class="p-title" id="title-bench">EKI Seat</div><p class="p-desc" id="desc-bench">Eguzki-energiaz elikatutako banku adimenduna.</p><ul class="specs"><li><i class="fas fa-bolt"></i> USB Charge</li><li><i class="fas fa-lightbulb"></i> LED Light</li></ul></div></div>
+            <div class="product-card reverse" data-aos="fade-left"><div class="carousel"><div class="carousel-images" id="carousel-table"><img src="https://i.imgur.com/PamRCp4.jpeg"><img src="https://i.imgur.com/7pIZ2QF.jpeg"><img src="https://i.imgur.com/ZHW0Yce.jpeg"></div><button class="prev" onclick="moveSlide('carousel-table', -1)">&#10094;</button><button class="next" onclick="moveSlide('carousel-table', 1)">&#10095;</button></div><div class="p-info"><div class="p-title" id="title-table">KALEA Work</div><p class="p-desc" id="desc-table">Lanerako edo aisialdirako mahai perfektua.</p><ul class="specs"><li><i class="fas fa-plug"></i> 220V Plug</li><li><i class="fas fa-wifi"></i> WiFi Zone</li></ul></div></div>
+            <div class="product-card" data-aos="fade-right"><div class="carousel"><div class="carousel-images" id="carousel-scooter"><img src="https://i.imgur.com/eOcvhRt.jpeg"><img src="https://i.imgur.com/CMAEbGN.jpeg"><img src="https://i.imgur.com/BL0cTZd.jpeg"></div><button class="prev" onclick="moveSlide('carousel-scooter', -1)">&#10094;</button><button class="next" onclick="moveSlide('carousel-scooter', 1)">&#10095;</button></div><div class="p-info"><div class="p-title" id="title-scooter">HIRI Go</div><p class="p-desc" id="desc-scooter">Patinete eta bizikleta elektrikoentzako karga gunea.</p><ul class="specs"><li><i class="fas fa-bicycle"></i> E-Bike</li><li><i class="fas fa-charging-station"></i> Fast Charge</li></ul></div></div>
         </div>
-      </article>
-    </div>
-  </div>
-</section>
+    </section>
 
-<section class="team">
-  <div class="container">
-    <h2 id="team-title" data-aos="fade-up">Gure Taldea</h2>
-    <div class="team-grid">
-      <div class="team-member" data-aos="flip-up">
-        <img src="https://ui-avatars.com/api/?name=Markel+Tamayo&background=009B48&color=fff&size=128" class="avatar">
-        <h3>Markel Tamayo</h3><span class="role" id="role-markel">Liderra / Project Manager</span>
-        <p class="member-bio" id="bio-markel">Proiektuaren zuzendaritza teknikoa eta taldearen koordinazioa. Instalazio elektrikoetan aditua.</p>
-      </div>
-      <div class="team-member" data-aos="flip-up" data-aos-delay="100">
-        <img src="https://ui-avatars.com/api/?name=Ander+Sanz&background=212529&color=fff&size=128" class="avatar">
-        <h3>Ander Sanz</h3><span class="role" id="role-ander">Bitartekaria</span>
-        <p class="member-bio" id="bio-ander">Komunikazioan eta erakunde-harremanetan arduraduna. Alderdi teknikoaren eta administrazioaren lotura.</p>
-      </div>
-      <div class="team-member" data-aos="flip-up" data-aos-delay="200">
-        <img src="https://ui-avatars.com/api/?name=Dennis+A&background=212529&color=fff&size=128" class="avatar">
-        <h3>Dennis Agirrezabalaga</h3><span class="role" id="role-dennis">Teknikaria</span>
-        <p class="member-bio" id="bio-dennis">Exekuzio teknikoaren eta mantentze-lanen arduraduna. Kalitate-kontrolean espezialista.</p>
-      </div>
-      <div class="team-member" data-aos="flip-up" data-aos-delay="300">
-        <img src="https://ui-avatars.com/api/?name=Lander+Zabala&background=212529&color=fff&size=128" class="avatar">
-        <h3>Lander Zabala</h3><span class="role" id="role-lander">Ekintzailea</span>
-        <p class="member-bio" id="bio-lander">Negozio-garapena eta estrategia komertziala. Proiektuaren bideragarritasun ekonomikoa.</p>
-      </div>
-    </div>
-  </div>
-</section>
+    <section class="app-section" id="app">
+        <div class="container app-grid">
+            <div class="app-text" data-aos="fade-right">
+                <span class="badge" id="app-badge">Laster / Próximamente</span>
+                <h2 id="app-title">APN App: Konektatu eta Irabazi</h2>
+                <p id="app-desc">Gure eredua bakarra da. APN aplikazioaren bidez, erabiltzaileek harpidetza ordaintzen dute zerbitzuak erabiltzeko. Irabazi horiek Udalarekin partekatzen ditugu.</p>
+                <ul class="app-features"><li id="app-feat-1"><i class="fas fa-coins"></i> Revenue Share</li><li id="app-feat-2"><i class="fas fa-mobile-alt"></i> App Harpidetza</li><li id="app-feat-3"><i class="fas fa-users"></i> Komunitatea Sortu</li></ul>
+                <a href="https://tamayo777.github.io/APN-APP/" target="_blank" class="btn-cta" style="margin-top:20px; display:inline-block;" id="app-btn">Deskargatu (Beta)</a>
+            </div>
+            <div class="app-img" data-aos="fade-left"><img src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?q=80&w=600&auto=format&fit=crop" alt="APN App"></div>
+        </div>
+    </section>
 
-<section class="partners">
-  <div class="container">
-    <p id="partners-text">Laguntzaileak / Colaboran:</p>
-    <div class="logos-grid">
-      <img src="https://www.lhusurbil.eus/wp-content/uploads/2020/10/logoa-lhusurbil.png" alt="Usurbil LH" style="height: 60px; opacity: 0.8;">
-      <img src="https://i.imgur.com/XXsk6Hm.png" alt="APN Logo" style="height: 90px;">
-    </div>
-  </div>
-</section>
+    <section class="calculator">
+        <div class="container" data-aos="fade-up">
+            <h2 id="calc-title">Kalkulatu zure Udalaren Irabaziak</h2>
+            <p id="calc-subtitle">Zenbat EKI Seat jarriko zenituzke zure herrian?</p>
+            <div class="calc-wrapper"><input type="number" id="benchInput" placeholder="10" min="1"><button onclick="calculateProfit()" class="btn-calc" id="calc-btn">Kalkulatu</button></div>
+            <div id="resultBox" class="result-box"><h3>+ <span id="profitAmount">0</span>€ / <span id="year-text">Urtean</span>*</h3><p class="small-text" id="calc-note">*Estimazioa: %50eko banaketa Udalarentzat.</p></div>
+        </div>
+    </section>
 
-<section class="contact" id="contact">
-  <div class="contact-box" data-aos="fade-up">
-    <h2 id="contact-title">Kontaktua</h2>
-    <p><i class="fas fa-map-marker-alt"></i> Hernani Bo. Zinkuñaga 12, Gipuzkoa</p>
-    <p><i class="fas fa-envelope"></i> ikmtamayo24@lhusurbil.eus</p>
-    <a href="https://youtube.com/@APN-99" target="_blank" class="yt-btn"><i class="fab fa-youtube"></i> Youtube @APN-99</a>
-  </div>
-</section>
+    <section class="services" id="services">
+        <div class="container" data-aos="zoom-in">
+            <h2 id="service-title">Gure Zerbitzuak</h2>
+            <div class="service-card">
+                <div class="service-img" style="background-image: url('https://i.imgur.com/bENLaOD.jpeg');"></div>
+                <div class="service-content"><h3 id="maint-title">Instalazioen Mantentzea</h3><p id="maint-desc">Gure talde teknikoak zure instalazioak egoera ezin hobean mantentzen ditu.</p><button class="btn-service" id="maint-btn">Jarri Gurekin Harremanetan</button></div>
+            </div>
+        </div>
+    </section>
 
-<footer><p>&copy; 2025 APN – Accessible Public-energy Network. Usurbil LH.</p></footer>
+    <section class="roadmap" id="roadmap">
+        <div class="container">
+            <h2 data-aos="fade-up" id="roadmap-title">Proiektuaren Egoera</h2>
+            <div class="timeline">
+                <div class="timeline-item done" data-aos="fade-right"><div class="circle"><i class="fas fa-check"></i></div><div class="content"><h3 id="rm1-title">Ideia eta Diseinua</h3><p id="rm1-desc">Planifikazioa eta diseinu teknikoak amaituta.</p><span class="status-badge green" id="rm1-badge">Egina</span></div></div>
+                <div class="timeline-item active" data-aos="fade-left"><div class="circle"><i class="fas fa-tools"></i></div><div class="content"><h3 id="rm2-title">Prototipoa</h3><p id="rm2-desc">Lehen unitate funtzionala eraikitzen Usurbil LHn.</p><span class="status-badge orange" id="rm2-badge">Prozesuan</span></div></div>
+                <div class="timeline-item future" data-aos="fade-right"><div class="circle"><i class="fas fa-mobile-alt"></i></div><div class="content"><h3 id="rm3-title">App Garapena</h3><p id="rm3-desc">APN aplikazioaren bertsio Beta.</p><span class="status-badge grey" id="rm3-badge">Egiteke</span></div></div>
+                <div class="timeline-item future" data-aos="fade-left"><div class="circle"><i class="fas fa-globe-europe"></i></div><div class="content"><h3 id="rm4-title">Hedapena Gipuzkoan</h3><p id="rm4-desc">Lehen instalazioak probintziako udalerrietan.</p><span class="status-badge grey" id="rm4-badge">Egiteke</span></div></div>
+            </div>
+        </div>
+    </section>
 
-<div id="modal1" class="modal"><div class="modal-content"><span class="close" onclick="closeModal('modal1')">&times;</span><h2 id="mod1-title">Eguzkia: Elkartzeko aitzakia</h2><img src="https://images.unsplash.com/photo-1517457373958-b7bdd4587205?q=80&w=800" style="width:100%; border-radius:10px; margin: 15px 0;"><p id="mod1-text">Ez dugu soilik elektrizitatea eskaini nahi. Gure helburua eguzki-energiaren inguruan komunitate bat sortzea da. Espazio publikoak biziberritu nahi ditugu, jendea elkartuz kargatzen duten bitartean. Teknologia ez da hotza izan behar, baizik eta pertsonak batzeko tresna.</p></div></div>
-<div id="modal2" class="modal"><div class="modal-content"><span class="close" onclick="closeModal('modal2')">&times;</span><h2 id="mod2-title">Ideiatik Errealitatera</h2><img src="https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?q=80&w=800" style="width:100%; border-radius:10px; margin: 15px 0;"><p id="mod2-text">Une honetan, APN fase kontzeptualean dago. Diseinuak eta eredu ekonomikoa prest ditugu Udalekin eta Unibertsitateekin elkarlanean aritzeko. Hurrengo pausoa: prototipoa eraikitzea Usurbil LHko tailerretan, gure ezagutza praktikoa erakusteko.</p></div></div>
+    <section class="blog" id="blog">
+        <div class="container">
+            <h2 data-aos="fade-up" id="blog-title">Gure Filosofia</h2>
+            <div class="blog-grid">
+                <article class="blog-card" data-aos="fade-up"><div class="blog-img" style="background-image: url('https://images.unsplash.com/photo-1517457373958-b7bdd4587205?q=80&w=800');"></div><div class="blog-content"><span class="blog-tag" id="blog-tag-1">Komunitatea</span><h3 id="art1-title">Eguzkia: Elkartzeko aitzakia</h3><p id="art1-text">Gure helburua eguzki-energiaren inguruan komunitate bat sortzea da.</p><button class="read-more" onclick="openModal('modal1')" id="read-more-1">Gehiago irakurri &rarr;</button></div></article>
+                <article class="blog-card" data-aos="fade-up" data-aos-delay="100"><div class="blog-img" style="background-image: url('https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?q=80&w=800');"></div><div class="blog-content"><span class="blog-tag" id="blog-tag-2">Garapena</span><h3 id="art2-title">Ideiatik Errealitatera</h3><p id="art2-text">Une honetan, APN fase kontzeptualean dago.</p><button class="read-more" onclick="openModal('modal2')" id="read-more-2">Gehiago irakurri &rarr;</button></div></article>
+            </div>
+        </div>
+    </section>
+
+    <section class="team">
+        <div class="container">
+            <h2 id="team-title" data-aos="fade-up">Gure Taldea</h2>
+            <div class="team-grid">
+                <div class="team-member" data-aos="flip-up"><img src="https://ui-avatars.com/api/?name=Markel+Tamayo&background=009B48&color=fff&size=128" class="avatar"><h3>Markel Tamayo</h3><span class="role" id="role-markel">Liderra / Project Manager</span><p class="member-bio" id="bio-markel">Proiektuaren zuzendaritza teknikoa.</p></div>
+                <div class="team-member" data-aos="flip-up" data-aos-delay="100"><img src="https://ui-avatars.com/api/?name=Ander+Sanz&background=212529&color=fff&size=128" class="avatar"><h3>Ander Sanz</h3><span class="role" id="role-ander">Bitartekaria</span><p class="member-bio" id="bio-ander">Komunikazioan eta erakunde-harremanetan arduraduna.</p></div>
+                <div class="team-member" data-aos="flip-up" data-aos-delay="200"><img src="https://ui-avatars.com/api/?name=Dennis+A&background=212529&color=fff&size=128" class="avatar"><h3>Dennis Agirrezabalaga</h3><span class="role" id="role-dennis">Teknikaria</span><p class="member-bio" id="bio-dennis">Exekuzio teknikoaren eta mantentze-lanen arduraduna.</p></div>
+                <div class="team-member" data-aos="flip-up" data-aos-delay="300"><img src="https://ui-avatars.com/api/?name=Lander+Zabala&background=212529&color=fff&size=128" class="avatar"><h3>Lander Zabala</h3><span class="role" id="role-lander">Ekintzailea</span><p class="member-bio" id="bio-lander">Negozio-garapena eta estrategia komertziala.</p></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="partners">
+        <div class="container"><p id="partners-text">Laguntzaileak / Colaboran:</p><div class="logos-grid"><img src="https://www.lhusurbil.eus/wp-content/uploads/2020/10/logoa-lhusurbil.png" alt="Usurbil LH" style="height: 60px; opacity: 0.8;"><img src="https://i.imgur.com/XXsk6Hm.png" alt="APN Logo" style="height: 90px;"></div></div>
+    </section>
+
+    <section class="contact" id="contact">
+        <div class="contact-box" data-aos="fade-up"><h2 id="contact-title">Kontaktua</h2><p><i class="fas fa-map-marker-alt"></i> Hernani Bo. Zinkuñaga 12, Gipuzkoa</p><p><i class="fas fa-envelope"></i> ikmtamayo24@lhusurbil.eus</p><a href="https://youtube.com/@APN-99" target="_blank" class="yt-btn"><i class="fab fa-youtube"></i> Youtube @APN-99</a></div>
+    </section>
+
+    <footer><p>&copy; 2025 APN – Accessible Public-energy Network. Usurbil LH.</p></footer>
+
+    <div id="modal1" class="modal"><div class="modal-content"><span class="close" onclick="closeModal('modal1')">&times;</span><h2 id="mod1-title">Eguzkia: Elkartzeko aitzakia</h2><img src="https://images.unsplash.com/photo-1517457373958-b7bdd4587205?q=80&w=800" style="width:100%; border-radius:10px; margin: 15px 0;"><p id="mod1-text">Ez dugu soilik elektrizitatea eskaini nahi. Gure helburua eguzki-energiaren inguruan komunitate bat sortzea da. Espazio publikoak biziberritu nahi ditugu, jendea elkartuz kargatzen duten bitartean.</p></div></div>
+    <div id="modal2" class="modal"><div class="modal-content"><span class="close" onclick="closeModal('modal2')">&times;</span><h2 id="mod2-title">Ideiatik Errealitatera</h2><img src="https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?q=80&w=800" style="width:100%; border-radius:10px; margin: 15px 0;"><p id="mod2-text">Une honetan, APN fase kontzeptualean dago. Diseinuak eta eredu ekonomikoa prest ditugu Udalekin eta Unibertsitateekin elkarlanean aritzeko.</p></div></div>
+
+    <script>
+        // 1. ANIMACIONES AOS
+        const script = document.createElement('script'); script.src = "https://unpkg.com/aos@2.3.1/dist/aos.js"; script.onload = () => { AOS.init(); }; document.head.appendChild(script);
+
+        // 2. CARRUSEL
+        let slideIndex = { 'carousel-bench': 0, 'carousel-table': 0, 'carousel-scooter': 0 };
+        function moveSlide(id, step) { const c = document.getElementById(id); const t = c.getElementsByTagName('img').length; slideIndex[id] += step; if (slideIndex[id] >= t) slideIndex[id] = 0; if (slideIndex[id] < 0) slideIndex[id] = t - 1; c.style.transform = `translateX(-${slideIndex[id] * 100}%)`; }
+
+        // 3. CALCULADORA
+        function calculateProfit() { const i = document.getElementById('benchInput'); const s = document.getElementById('profitAmount'); if(i.value > 0) { s.innerText = (i.value * 500).toLocaleString('eu-ES'); document.getElementById('resultBox').style.display = 'block'; } else { alert("Mesedez, sartu zenbaki bat."); } }
+
+        // 4. MODALS
+        function openModal(id) { document.getElementById(id).style.display = "block"; }
+        function closeModal(id) { document.getElementById(id).style.display = "none"; }
+        window.onclick = function(event) { if (event.target.classList.contains('modal')) { event.target.style.display = "none"; } }
+
+        // 5. TRADUCCIONES
+        const translations = {
+            eu: {
+                heroTitle: "Eguzkitik jaio eta denengana iristen den energia", heroSubtitle: "Usurbilgo LHko ikasleek sortutako proiektu berritzailea", ctaBtn: "Zergatik Inbertitu?",
+                aboutTitle: "Nor gara?", aboutText: "Elektrizitate adarreko heziketa zikloko ikasle gazte batzuk gara eta klaseko proiektu batekin abiatu dugu hau.",
+                investTitle: "Zergatik inbertitu APN System-en?", investSubtitle: "Hiri-altzariak aktibo errentagarri eta jasangarri bihurtzen ditugu.",
+                inv1Title: "Azpiegitura Arina (Zero Obra)", inv1Desc: "Ahaztu zanja garestiak. Gure sistema autonomoa da: jarri eta funtzionatu (Plug & Play).",
+                inv2Title: "Inbertsioaren Itzulera", inv2Desc: "Gastua inbertsio bihurtzen dugu. Gure App-ak diru-sarrerak sortzen ditu Udalarentzat.",
+                inv3Title: "Abangoardia eta Ongizatea", inv3Desc: "Egin zure erakundea jasangarritasunaren erreferente. Smart City liderra.",
+                productsTitle: "Gure Produktuak", titleBench: "EKI Seat", descBench: "Eguzki-energiaz elikatutako banku adimenduna.", titleTable: "KALEA Work", descTable: "Lanerako edo aisialdirako mahai perfektua.", titleScooter: "HIRI Go", descScooter: "Patinete eta bizikleta elektrikoentzako karga gunea.",
+                appTitle: "APN App: Konektatu eta Irabazi", appDesc: "Gure eredua bakarra da. Irabaziak Udalarekin partekatzen ditugu.", appBadge: "Laster", appFeat1: "Revenue Share (Irabaziak partekatu)", appFeat2: "App Harpidetza", appFeat3: "Komunitatea Sortu", appBtn: "Deskargatu (Beta)",
+                calcTitle: "Kalkulatu zure Udalaren Irabaziak", calcSubtitle: "Zenbat EKI Seat jarriko zenituzke zure herrian?", calcBtn: "Kalkulatu", yearText: "Urtean", calcNote: "*Estimazioa: %50eko banaketa Udalarentzat.",
+                serviceTitle: "Gure Zerbitzuak", maintTitle: "Instalazioen Mantentzea", maintDesc: "Gure talde teknikoak zure instalazioak egoera ezin hobean mantentzen ditu.", maintBtn: "Jarri Gurekin Harremanetan",
+                roadmapTitle: "Proiektuaren Egoera", rm1Title: "Ideia eta Diseinua", rm1Desc: "Planifikazioa eta diseinu teknikoak amaituta.", rm1Badge: "Egina", rm2Title: "Prototipo", rm2Desc: "Lehen unitate funtzionala eraikitzen Usurbil LHn.", rm2Badge: "Prozesuan", rm3Title: "App Garapena", rm3Desc: "APN aplikazioaren bertsio Beta.", rm3Badge: "Egiteke", rm4Title: "Hedapena Gipuzkoan", rm4Desc: "Lehen instalazioak probintziako udalerrietan.", rm4Badge: "Egiteke",
+                blogTitle: "Gure Filosofia", blogTag1: "Komunitatea", art1Title: "Eguzkia: Elkartzeko aitzakia", art1Text: "Gure helburua eguzki-energiaren inguruan komunitate bat sortzea da.", readMore1: "Gehiago irakurri &rarr;", mod1Title: "Eguzkia: Elkartzeko aitzakia", mod1Text: "Ez dugu soilik elektrizitatea eskaini nahi. Gure helburua eguzki-energiaren inguruan komunitate bat sortzea da. Espazio publikoak biziberritu nahi ditugu, jendea elkartuz kargatzen duten bitartean.",
+                blogTag2: "Garapena", art2Title: "Ideiatik Errealitatera", art2Text: "Une honetan, APN fase kontzeptualean dago. Hurrengo pausoa: prototipoa.", readMore2: "Gehiago irakurri &rarr;", mod2Title: "Ideiatik Errealitatera", mod2Text: "Une honetan, APN fase kontzeptualean dago. Diseinuak eta eredu ekonomikoa prest ditugu Udalekin eta Unibertsitateekin elkarlanean aritzeko.",
+                teamTitle: "Gure Taldea", roleMarkel: "Liderra / Project Manager", bioMarkel: "Proiektuaren zuzendaritza teknikoa.", roleAnder: "Bitartekaria", bioAnder: "Komunikazioan eta erakunde-harremanetan arduraduna.", roleDennis: "Teknikaria", bioDennis: "Exekuzio teknikoaren eta mantentze-lanen arduraduna.", roleLander: "Ekintzailea", bioLander: "Negozio-garapena eta estrategia komertziala.", partnersText: "Laguntzaileak:", contactTitle: "Kontaktua"
+            },
+            es: {
+                heroTitle: "La energía que nace del sol y llega a todos", heroSubtitle: "Un proyecto innovador creado por estudiantes de FP de Usurbil", ctaBtn: "¿Por qué Invertir?",
+                aboutTitle: "¿Quiénes somos?", aboutText: "Somos un grupo de jóvenes estudiantes de electricidad lanzando este proyecto como iniciativa de clase.",
+                investTitle: "¿Por qué invertir en APN System?", investSubtitle: "Transformamos el mobiliario urbano en un activo rentable y sostenible.",
+                inv1Title: "Infraestructura Ágil (Cero Obra)", inv1Desc: "Olvide zanjas costosas. Nuestro sistema es autónomo: instalar y funcionar (Plug & Play).",
+                inv2Title: "Retorno de Inversión", inv2Desc: "Convertimos el gasto en inversión. Nuestra App genera ingresos que compartimos con el Ayuntamiento.",
+                inv3Title: "Vanguardia y Bienestar", inv3Desc: "Posicione su institución como líder en Smart Cities. Espacios verdes y tecnológicos.",
+                productsTitle: "Nuestros Productos", titleBench: "EKI Seat", descBench: "Banco inteligente solar.", titleTable: "KALEA Work", descTable: "La mesa perfecta para trabajo u ocio.", titleScooter: "HIRI Go", descScooter: "Punto de carga y parking para patinetes eléctricos.",
+                appTitle: "App APN: Conecta y Gana", appDesc: "Nuestro modelo es único. Compartimos ingresos con el Ayuntamiento.", appBadge: "Próximamente", appFeat1: "Revenue Share", appFeat2: "Suscripción App", appFeat3: "Crear Comunidad", appBtn: "Descargar (Beta)",
+                calcTitle: "Calcula los Beneficios Municipales", calcSubtitle: "¿Cuántos EKI Seat pondrías en tu municipio?", calcBtn: "Calcular", yearText: "Año", calcNote: "*Estimación: 50% de reparto para el Ayuntamiento.",
+                serviceTitle: "Nuestros Servicios", maintTitle: "Mantenimiento Integral", maintDesc: "Nuestro equipo técnico mantiene tus instalaciones en perfecto estado.", maintBtn: "Contactar con Nosotros",
+                roadmapTitle: "Estado del Proyecto", rm1Title: "Idea y Diseño", rm1Desc: "Planificación y diseños técnicos finalizados.", rm1Badge: "Hecho", rm2Title: "Prototipo", rm2Desc: "Construyendo la primera unidad funcional en Usurbil LH.", rm2Badge: "En Proceso", rm3Title: "Desarrollo App", rm3Desc: "Versión Beta de la App APN.", rm3Badge: "Pendiente", rm4Title: "Expansión Gipuzkoa", rm4Desc: "Primeras instalaciones en municipios.", rm4Badge: "Pendiente",
+                blogTitle: "Nuestra Filosofía", blogTag1: "Comunidad", art1Title: "El sol: excusa para unirnos", art1Text: "Nuestro objetivo es crear una comunidad en torno a la energía solar.", readMore1: "Leer más &rarr;", mod1Title: "El sol: excusa para unirnos", mod1Text: "No solo queremos ofrecer electricidad. Nuestro objetivo es crear una comunidad en torno a la energía solar. Queremos revitalizar los espacios públicos, uniendo a las personas mientras cargan sus dispositivos.",
+                blogTag2: "Desarrollo", art2Title: "De la Idea a la Realidad", art2Text: "Actualmente en fase conceptual. Siguiente paso: construir el prototipo.", readMore2: "Leer más &rarr;", mod2Title: "De la Idea a la Realidad", mod2Text: "Actualmente, APN está en fase conceptual. Tenemos los diseños y el modelo económico listos para colaborar con Ayuntamientos y Universidades.",
+                teamTitle: "Nuestro Equipo", roleMarkel: "Líder / Project Manager", bioMarkel: "Dirección técnica y coordinación de equipos.", roleAnder: "Mediador", bioAnder: "Responsable de comunicación y relaciones institucionales.", roleDennis: "Técnico", bioDennis: "Responsable de ejecución técnica y mantenimiento.", roleLander: "Emprendedor", bioLander: "Desarrollo de negocio y estrategia comercial.", partnersText: "Colaboran:", contactTitle: "Contacto"
+            },
+            en: {
+                heroTitle: "Energy born from the sun reaching everyone", heroSubtitle: "An innovative project by vocational students from Usurbil", ctaBtn: "Why Invest?",
+                aboutTitle: "About Us", aboutText: "We are a group of young electrical engineering students launching this as a class project.",
+                investTitle: "Why invest in APN System?", investSubtitle: "We transform urban furniture into a profitable and sustainable asset.",
+                inv1Title: "Agile Infrastructure (Zero Works)", inv1Desc: "Forget expensive trenching. Our system is autonomous: Plug & Play.",
+                inv2Title: "Return on Investment", inv2Desc: "We turn cost into investment. Our App generates revenue we share with the City Council.",
+                inv3Title: "Vanguard & Wellbeing", inv3Desc: "Position your institution as a Smart City leader.",
+                productsTitle: "Our Products", titleBench: "EKI Seat", descBench: "Smart solar bench.", titleTable: "KALEA Work", descTable: "Perfect table for work or leisure.", titleScooter: "HIRI Go", descScooter: "Charging point and parking for electric scooters.",
+                appTitle: "APN App: Connect & Earn", appDesc: "Our model is unique. We share revenue with the City Council.", appBadge: "Coming Soon", appFeat1: "Revenue Share", appFeat2: "App Subscription", appFeat3: "Build Community", appBtn: "Download (Beta)",
+                calcTitle: "Calculate City Revenue", calcSubtitle: "How many EKI Seats would you install?", calcBtn: "Calculate", yearText: "Year", calcNote: "*Estimate: 50% revenue share for City Council.",
+                serviceTitle: "Our Services", maintTitle: "Facility Maintenance", maintDesc: "Our technical team keeps your facilities in perfect condition.", maintBtn: "Contact Us",
+                roadmapTitle: "Project Status", rm1Title: "Idea & Design", rm1Desc: "Planning and technical designs completed.", rm1Badge: "Done", rm2Title: "Prototype", rm2Desc: "Building the first functional unit at Usurbil LH.", rm2Badge: "In Process", rm3Title: "App Development", rm3Desc: "APN App Beta version.", rm3Badge: "To Do", rm4Title: "Gipuzkoa Expansion", rm4Desc: "First installations in municipalities.", rm4Badge: "To Do",
+                blogTitle: "Our Philosophy", blogTag1: "Community", art1Title: "Sun: An excuse to unite", art1Text: "Our goal is to build a community around solar energy.", readMore1: "Read more &rarr;", mod1Title: "Sun: An excuse to unite", mod1Text: "We don't just want to offer electricity. Our goal is to build a community around solar energy. We want to revitalize public spaces, bringing people together while they charge.",
+                blogTag2: "Development", art2Title: "From Idea to Reality", art2Text: "Currently in conceptual phase. Next step: building the prototype.", readMore2: "Read more &rarr;", mod2Title: "From Idea to Reality", mod2Text: "Currently, APN is in the conceptual phase. We have designs and the economic model ready to collaborate with City Councils.",
+                teamTitle: "Our Team", roleMarkel: "Leader / Project Manager", bioMarkel: "Technical direction and team coordination.", roleAnder: "Mediator", bioAnder: "Communication and institutional relations manager.", roleDennis: "Technician", bioDennis: "Technical execution and maintenance manager.", roleLander: "Entrepreneur", bioLander: "Business development and commercial strategy.", partnersText: "Partners:", contactTitle: "Contact"
+            }
+        };
+
+        function setLang(lang) {
+            const ids = [
+                'heroTitle', 'heroSubtitle', 'ctaBtn', 'aboutTitle', 'aboutText',
+                'investTitle', 'investSubtitle', 'inv1Title', 'inv1Desc', 'inv2Title', 'inv2Desc', 'inv3Title', 'inv3Desc',
+                'productsTitle', 'titleBench', 'descBench', 'titleTable', 'descTable', 'titleScooter', 'descScooter',
+                'appTitle', 'appDesc', 'appBadge', 'appFeat1', 'appFeat2', 'appFeat3', 'appBtn',
+                'calcTitle', 'calcSubtitle', 'calcBtn', 'yearText', 'calcNote',
+                'serviceTitle', 'maintTitle', 'maintDesc', 'maintBtn',
+                'roadmapTitle', 'rm1Title', 'rm1Desc', 'rm1Badge', 'rm2Title', 'rm2Desc', 'rm2Badge', 'rm3Title', 'rm3Desc', 'rm3Badge', 'rm4Title', 'rm4Desc', 'rm4Badge',
+                'blogTitle', 'blogTag1', 'art1Title', 'art1Text', 'readMore1', 'mod1Title', 'mod1Text',
+                'blogTag2', 'art2Title', 'art2Text', 'readMore2', 'mod2Title', 'mod2Text',
+                'teamTitle', 'roleMarkel', 'bioMarkel', 'roleAnder', 'bioAnder', 'roleDennis', 'bioDennis', 'roleLander', 'bioLander',
+                'partnersText', 'contactTitle'
+            ];
+
+            ids.forEach(id => {
+                let htmlId = id.replace(/([A-Z])/g, "-$1").toLowerCase(); 
+                if (id.match(/inv\d/)) htmlId = id.replace(/inv(\d)([A-Z])/, "inv-$1-$2").toLowerCase();
+                if (id.match(/rm\d/)) htmlId = id.replace(/rm(\d)([A-Z])/, "rm$1-$2").toLowerCase(); 
+                if (id.match(/art\d/)) htmlId = id.replace(/art(\d)([A-Z])/, "art$1-$2").toLowerCase();
+                if (id.match(/mod\d/)) htmlId = id.replace(/mod(\d)([A-Z])/, "mod$1-$2").toLowerCase();
+                if (id.match(/readMore\d/)) htmlId = id.replace(/readMore(\d)/, "read-more-$1");
+                
+                const element = document.getElementById(htmlId);
+                if(element && translations[lang][id]) element.innerHTML = translations[lang][id];
+            });
+
+            document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+        }
+    </script>
+</body>
+</html>
